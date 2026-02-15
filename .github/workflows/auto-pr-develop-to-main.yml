@@ -33,4 +33,3 @@ jobs:
 
           body=$'PR automático de release (develop -> main).\n\nGMUD: (obrigatório preencher antes de aprovar/merge)\nJanela:\nPlano de rollback:'
           gh pr create --repo "$REPO" --base main --head develop --title "Release: develop -> main" --body "$body"
-
