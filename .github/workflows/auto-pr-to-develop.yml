@@ -27,7 +27,7 @@ jobs:
               --base develop \
               --head "${{ github.ref_name }}" \
               --title "${{ github.ref_name }}" \
-              --body "PR automático para **develop**.\n\nGMUD: (preencher se necessário)"
+              --body "PR automático para **develop**.
           else
             echo "PR já existe: $existing"
           fi
