@@ -74,17 +74,19 @@ pnpm format
 ## Fluxo de branches e PRs
 
 Branches principais:
+
 - main → produção/release
 - develop → integração/homologação
 
 Branches de trabalho:
+
 - feature/<nome>
 - fix/<nome>
 - chore/<nome>
 
 ### Como trabalhar
 
-1) Atualize a develop e crie sua branch:
+1. Atualize a develop e crie sua branch:
 
 ```bash
 git checkout develop
@@ -92,25 +94,27 @@ git pull
 git checkout -b feature/minha-feature
 ```
 
-2) Faça commits e envie para o GitHub:
+2. Faça commits e envie para o GitHub:
 
 ```bash
 git push -u origin feature/minha-feature
 ```
 
-3) O GitHub Actions cria automaticamente um PR para develop.
+3. O GitHub Actions cria automaticamente um PR para develop.
 
-4) Após merge em develop, o fluxo cria (ou deve criar) um PR de release develop → main.
+4. Após merge em develop, o fluxo cria (ou deve criar) um PR de release develop → main.
 
 ---
 
 ## CI (GitHub Actions)
 
 O pipeline CI roda automaticamente em:
+
 - Pull Requests para develop e main
 - Push em develop e main
 
 Etapas do CI:
+
 - Instala dependências (pnpm)
 - Lint
 - Testes (se existirem)
@@ -123,9 +127,11 @@ Etapas do CI:
 O número da GMUD deve ser preenchido no PR de release develop → main.
 
 Sugestão de padrão:
+
 - GMUD-AAAA-NNNN (ex.: GMUD-2026-0007)
 
 Campos recomendados no PR de release:
+
 - GMUD:
 - Janela:
 - Plano de rollback:
