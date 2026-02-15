@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alius Cloud — Site Institucional
 
-## Getting Started
+Site institucional da **Alius Cloud**, desenvolvido com **Next.js**, **TypeScript** e **Tailwind CSS**.
 
-First, run the development server:
+---
+
+## Stack
+
+- Next.js (App Router)
+- React + TypeScript
+- Tailwind CSS
+- ESLint + Prettier
+- GitHub Actions (CI)
+
+---
+
+## Requisitos
+
+- Node.js 20+
+- pnpm 10+
+
+---
+
+## Rodando localmente
+
+### 1) Instalar dependências
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2) Rodar em desenvolvimento
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse: http://localhost:3000
 
-## Learn More
+### 3) Build de produção
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts úteis
 
-## Deploy on Vercel
+### Lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Formatar código
+
+```bash
+pnpm format
+```
+
+---
+
+## Estrutura do projeto (resumo)
+
+- app/ → páginas e rotas (Next App Router)
+- public/ → arquivos estáticos (imagens, ícones)
+- lib/ → helpers/utilitários (ex.: utils.ts)
+- .github/workflows/ → pipelines do GitHub Actions
+
+---
+
+## Fluxo de branches e PRs
+
+Branches principais:
+- main → produção/release
+- develop → integração/homologação
+
+Branches de trabalho:
+- feature/<nome>
+- fix/<nome>
+- chore/<nome>
+
+### Como trabalhar
+
+1) Atualize a develop e crie sua branch:
+
+```bash
+git checkout develop
+git pull
+git checkout -b feature/minha-feature
+```
+
+2) Faça commits e envie para o GitHub:
+
+```bash
+git push -u origin feature/minha-feature
+```
+
+3) O GitHub Actions cria automaticamente um PR para develop.
+
+4) Após merge em develop, o fluxo cria (ou deve criar) um PR de release develop → main.
+
+---
+
+## CI (GitHub Actions)
+
+O pipeline CI roda automaticamente em:
+- Pull Requests para develop e main
+- Push em develop e main
+
+Etapas do CI:
+- Instala dependências (pnpm)
+- Lint
+- Testes (se existirem)
+- Build
+
+---
+
+## GMUD (Mudança) — Releases para main
+
+O número da GMUD deve ser preenchido no PR de release develop → main.
+
+Sugestão de padrão:
+- GMUD-AAAA-NNNN (ex.: GMUD-2026-0007)
+
+Campos recomendados no PR de release:
+- GMUD:
+- Janela:
+- Plano de rollback:
+
+---
+
+## Deploy (planejado)
+
+O deploy pode ser amarrado a um Environment production no GitHub, exigindo aprovação manual para respeitar a janela de mudança (GMUD).
+
+---
+
+## Licença
+
+Este projeto não possui licença definida.
