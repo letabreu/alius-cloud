@@ -21,13 +21,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          existing=$(gh pr list --head "${{ github.ref_name }}" --base develop --state open --json number --jq '.[0].number')
-          if [ -z "$existing" ]; then
-            gh pr create \
-              --base develop \
-              --head "${{ github.ref_name }}" \
-              --title "${{ github.ref_name }}" \
-              --body "PR automático para **develop**.
+          set -e
+
+          head="${{ github.ref_name }}"
+          base="develop"
+
+          existing=$(gh pr list --head "$head" --base "$base" --state open --json number --jq '.[0].number')
+          if [ -z "${existing:-}" ]; then
+            gh pr create --base "$base" --head "$head" --title "$head" --body "PR automático para **develop**."
           else
             echo "PR já existe: $existing"
           fi
+
