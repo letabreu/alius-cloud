@@ -2,33 +2,43 @@ name: Auto PR to develop
 
 on:
   push:
-    branches-ignore:
-      - main
-      - develop
-      - 'dependabot/**'
+    branches:
+      - "feature/**"
+      - "fix/**"
+      - "chore/**"
 
 jobs:
   create_pr:
-    if: startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'fix/') || startsWith(github.ref_name, 'chore/')
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create PR if not exists
+      - name: Create PR to develop if not exists
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          HEAD: ${{ github.ref_name }}
+          BASE: develop
         run: |
-          set -e
+          set -euo pipefail
 
-          head="${{ github.ref_name }}"
-          base="develop"
+          echo "Repo: $REPO"
+          echo "Head: $HEAD"
+          echo "Base: $BASE"
 
-          existing=$(gh pr list --head "$head" --base "$base" --state open --json number --jq '.[0].number')
-          if [ -z "${existing:-}" ]; then
-            gh pr create --base "$base" --head "$head" --title "$head" --body "PR automático para **develop**."
-          else
+          existing=$(gh pr list --repo "$REPO" --head "$HEAD" --base "$BASE" --state open --json number --jq '.[0].number')
+          if [ -n "${existing:-}" ]; then
             echo "PR já existe: $existing"
+            exit 0
           fi
+
+          gh pr create \
+            --repo "$REPO" \
+            --base "$BASE" \
+            --head "$HEAD" \
+            --title "$HEAD" \
+            --body "PR automático para **develop**."
