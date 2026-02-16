@@ -1,0 +1,93 @@
+/* components/layout/Header/Header.module.css */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgb(0 0 0 / 0.06);
+  background: rgb(var(--ac-off) / 0.88);
+  backdrop-filter: blur(12px);
+}
+
+/* espaço/altura mais “institucional” */
+.inner {
+  height: 4.5rem; /* antes 4rem */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* garante área clicável e alinhamento do logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+/* força SVG a ocupar bem o espaço e evita “pular” */
+.logo {
+  height: auto;
+  width: 220px; /* controla o tamanho visual */
+  max-width: 240px;
+  display: block;
+}
+
+/* navegação */
+.nav {
+  display: none;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+/* link com hover suave e underline elegante */
+.navLink {
+  position: relative;
+  font-size: 0.95rem;
+  color: rgb(var(--ac-deep) / 0.78);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 160ms ease;
+}
+
+.navLink:hover {
+  color: rgb(var(--ac-petroleum));
+}
+
+/* underline animado */
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  width: 0%;
+  background: rgb(var(--ac-teal));
+  border-radius: 999px;
+  transition: width 180ms ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* foco de teclado (acessibilidade) */
+.navLink:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid rgb(var(--ac-teal));
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+/* ajuste do logo em telas menores */
+@media (max-width: 420px) {
+  .logo {
+    width: 180px;
+  }
+}
