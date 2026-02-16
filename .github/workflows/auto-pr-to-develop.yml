@@ -3,9 +3,9 @@ name: Auto PR to develop
 on:
   push:
     branches:
-      - "feature/**"
-      - "fix/**"
-      - "chore/**"
+      - 'feature/**'
+      - 'fix/**'
+      - 'chore/**'
 
 jobs:
   create_pr:
