@@ -2,12 +2,13 @@ name: Auto PR to develop
 
 on:
   push:
-    branches: [develop]
+    branches:
+      - "feature/**"
+      - "fix/**"
+      - "chore/**"
     branches-ignore:
-      - main
-      - develop
-      - 'dependabot/**'
-
+      - "dependabot/**"
+      
 jobs:
   create_pr:
     if: startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'fix/') || startsWith(github.ref_name, 'chore/')
