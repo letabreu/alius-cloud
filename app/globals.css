@@ -1,5 +1,5 @@
 /* app/globals.css */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-brand-deep: rgb(var(--ac-deep));
@@ -10,11 +10,11 @@
 }
 
 :root {
-  --ac-deep: 20 25 47;       /* #14192F */
-  --ac-petroleum: 18 84 87;  /* #125457 */
-  --ac-teal: 62 135 140;     /* #3E878C */
-  --ac-gray: 195 195 197;    /* #C3C3C5 */
-  --ac-off: 236 235 237;     /* #ECEBED */
+  --ac-deep: 20 25 47; /* #14192F */
+  --ac-petroleum: 18 84 87; /* #125457 */
+  --ac-teal: 62 135 140; /* #3E878C */
+  --ac-gray: 195 195 197; /* #C3C3C5 */
+  --ac-off: 236 235 237; /* #ECEBED */
 }
 
 @layer base {
@@ -29,7 +29,9 @@
   }
 
   /* Títulos com cara “institucional moderna” */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     letter-spacing: -0.02em;
   }
 
@@ -66,11 +68,8 @@
 
   /* Seção “hero” escura estilo IT Lean (mas com cores Alius) */
   .hero-surface {
-    background: radial-gradient(
-        1200px circle at 10% 10%,
-        rgba(62, 135, 140, 0.25),
-        transparent 55%
-      ),
+    background:
+      radial-gradient(1200px circle at 10% 10%, rgba(62, 135, 140, 0.25), transparent 55%),
       linear-gradient(135deg, rgb(var(--ac-deep)), rgb(var(--ac-petroleum)));
     color: rgb(var(--ac-off));
   }
