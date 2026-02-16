@@ -1,15 +1,8 @@
 /* app/globals.css */
 @import 'tailwindcss';
 
-@theme {
-  --color-brand-deep: rgb(var(--ac-deep));
-  --color-brand-petroleum: rgb(var(--ac-petroleum));
-  --color-brand-teal: rgb(var(--ac-teal));
-  --color-brand-gray: rgb(var(--ac-gray));
-  --color-brand-off: rgb(var(--ac-off));
-}
-
 :root {
+  /* Paleta Alius Cloud (RGB em 3 números) */
   --ac-deep: 20 25 47; /* #14192F */
   --ac-petroleum: 18 84 87; /* #125457 */
   --ac-teal: 62 135 140; /* #3E878C */
@@ -28,7 +21,6 @@
     font-family: var(--font-sans);
   }
 
-  /* Títulos com cara “institucional moderna” */
   h1,
   h2,
   h3 {
@@ -50,15 +42,20 @@
     @apply mx-auto w-full max-w-6xl px-4;
   }
 
+  /* Fonte do logo (ZenDots) */
+  .font-logo {
+    font-family: var(--font-logo);
+  }
+
   /* Botões */
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition;
-    @apply bg-brand-petroleum text-brand-off hover:bg-brand-teal;
+    @apply bg-[rgb(var(--ac-petroleum))] text-[rgb(var(--ac-off))] hover:bg-[rgb(var(--ac-teal))];
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition;
-    @apply border border-brand-gray text-brand-deep hover:bg-white/60;
+    @apply border border-[rgb(var(--ac-gray))] text-[rgb(var(--ac-deep))] hover:bg-white/60;
   }
 
   /* Cards padrão */
@@ -66,7 +63,7 @@
     @apply rounded-2xl border border-black/10 bg-white/70 shadow-sm backdrop-blur;
   }
 
-  /* Seção “hero” escura estilo IT Lean (mas com cores Alius) */
+  /* Hero */
   .hero-surface {
     background:
       radial-gradient(1200px circle at 10% 10%, rgba(62, 135, 140, 0.25), transparent 55%),
