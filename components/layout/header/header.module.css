@@ -57,12 +57,10 @@
 /* underline animado */
 .navLink::after {
   content: '';
-  position: absolute;
   left: 0;
   bottom: -0.35rem;
   height: 2px;
   width: 0%;
-  background: rgb(var(--ac-teal));
   border-radius: 999px;
   transition: width 180ms ease;
 }
@@ -77,6 +75,74 @@
   outline: 2px solid rgb(var(--ac-teal));
   outline-offset: 4px;
   border-radius: 8px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+/* setinha no "Soluções" */
+.navLinkWithCaret {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.navLinkWithCaret::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgb(var(--ac-deep) / 0.6);
+  transform: translateY(1px);
+}
+
+/* Menu suspenso */
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+
+  min-width: 320px;
+  padding: 0.6rem;
+  border-radius: 14px;
+  border: 1px solid rgb(0 0 0 / 0.08);
+  background: rgb(var(--ac-off) / 0.95);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+}
+
+/* Hover (mouse) + foco (teclado) */
+.dropdown:hover .dropdownMenu,
+.dropdown:focus-within .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: rgb(var(--ac-deep) / 0.85);
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.dropdownItem:hover {
+  background: rgb(255 255 255 / 0.7);
+  color: rgb(var(--ac-petroleum));
 }
 
 @media (min-width: 768px) {

@@ -7,14 +7,28 @@ export const site = {
   description:
     'Projetamos soluções em dados e automação para dar previsibilidade, eficiência e escala ao seu negócio.',
   nav: [
-    { label: 'Serviços', href: '/servicos' },
+    { label: 'Início', href: '/' },
+    { label: 'Soluções', href: '/solucoes' },
     { label: 'Cases', href: '/cases' },
+    { label: 'Conteúdos', href: '/conteudos' },
     { label: 'Sobre', href: '/sobre' },
     { label: 'Contato', href: '/contato' },
   ] satisfies NavItem[],
+
+  solutionsMenu: [
+    { label: 'Padronização de camadas no Data Lake', href: '/solucoes#data-lake' },
+    { label: 'Automação de rotinas operacionais', href: '/solucoes#automacao' },
+    { label: 'Painel executivo com KPIs', href: '/solucoes#kpis' },
+  ] satisfies NavItem[],
+
   contact: {
     email: 'AQUI_SEU_EMAIL@dominio.com',
     whatsapp: 'AQUI_SEU_WHATSAPP',
+  },
+
+  cta: {
+    label: 'Falar com a Alius',
+    href: '/contato',
   },
 };
 
