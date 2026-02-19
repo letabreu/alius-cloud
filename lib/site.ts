@@ -22,7 +22,7 @@ export const site = {
   ] satisfies NavItem[],
 
   contact: {
-    email: 'AQUI_SEU_EMAIL@dominio.com',
+    email: 'contato@aliuscloud.com.br',
     whatsapp: 'AQUI_SEU_WHATSAPP',
   },
 
@@ -32,23 +32,24 @@ export const site = {
   },
 };
 
-export const services = [
+export const solutions = [
   {
-    title: 'Pipelines & ELT',
+    id: 'data-lake',
+    title: 'Padronização de camadas no Data Lake',
     description:
-      'Ingestão, transformação e orquestração com qualidade, rastreabilidade e custo eficiente.',
-    bullets: ['Modelagem (camadas)', 'Jobs agendados', 'Monitoramento & alertas'],
+      'Estruturação em camadas (raw/curated) e padrões de qualidade para reduzir retrabalho e aumentar confiabilidade.',
   },
   {
-    title: 'Analytics & BI',
-    description: 'Dashboards e métricas com governança para decisões rápidas e confiáveis.',
-    bullets: ['Camada semântica', 'KPIs e métricas', 'Documentação e catálogo'],
+    id: 'automacao',
+    title: 'Automação de rotinas operacionais',
+    description:
+      'Workflows automatizados para diminuir esforço manual, reduzir erros e aumentar previsibilidade do processo.',
   },
   {
-    title: 'Automações',
+    id: 'kpis',
+    title: 'Painel executivo com KPIs',
     description:
-      'Automatize rotinas e integrações para reduzir trabalho manual e riscos operacionais.',
-    bullets: ['Integrações', 'Bots e rotinas', 'Workflows e validações'],
+      'Centralização de indicadores com regras claras e documentação para evitar divergências e acelerar decisões.',
   },
 ] as const;
 

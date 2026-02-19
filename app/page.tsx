@@ -4,7 +4,7 @@ import styles from './page.module.css';
 
 import { Header } from '@/components/layout/header/header';
 import { Footer } from '@/components/layout/footer';
-import { cases, services, site, steps } from '@/lib/site';
+import { cases, site, steps } from '@/lib/site';
 
 function SectionTitle(props: { kicker?: string; title: string; subtitle?: string }) {
   return (

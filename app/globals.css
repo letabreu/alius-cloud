@@ -49,7 +49,7 @@
 
   /* Botões */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition;
+    @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition;
     @apply bg-[rgb(var(--ac-petroleum))] text-[rgb(var(--ac-off))] hover:bg-[rgb(var(--ac-teal))];
   }
 
