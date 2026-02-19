@@ -6,6 +6,7 @@ const manrope = localFont({
   src: '../public/fonts/Manrope-VariableFont_wght.ttf',
   variable: '--font-sans',
   display: 'swap',
+  weight: '100 900',
 });
 
 const zenDots = localFont({
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
-      <body className={`${manrope.variable} ${zenDots.variable}`}>{children}</body>
+    <html lang="pt-BR" className={`${manrope.variable} ${zenDots.variable}`}>
+      <body className="font-sans font-light">{children}</body>
     </html>
   );
 }
